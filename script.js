@@ -67,6 +67,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalProductSale: '15',
                 totalProductGoal: '50'
             }
+              'moha': {
+            password: '123',
+            profile: {
+                pic: 'images/moha_profile.jpg',
+                fullName: 'Mohamed YAssin Farah',
+                alias: 'moha'
+            },
+            dashboard: {
+                commission: '$2',
+                totalCommission: '$2',
+                totalProductSale: '1',
+                totalProductGoal: '100'
+            }
         },
         'user1': {
             password: 'pass1',
