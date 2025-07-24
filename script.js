@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalCommission: '$150',
                 totalProductSale: '15',
                 totalProductGoal: '50'
-            }
+            },
               'moha': {
             password: '123',
             profile: {
