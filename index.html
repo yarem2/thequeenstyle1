@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee App - Hamdi</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <div id="splashScreen" class="screen active">
+        <div class="splash-screen-content">
+            <img src="images/the_queen_style_logo.png" alt="The Queen Style Fashion Logo" class="app-logo">
+            <button id="splashLoginButton" class="login-button">LOG IN</button>
+            <p class="admin-text">ADMIN</p>
+        </div>
+    </div>
+
+    <div id="loginScreen" class="screen">
+        <div class="login-container">
+            <div class="login-box">
+                <a href="#" id="loginBackArrow" class="back-arrow">&#8592;</a>
+                <h2>Log In</h2>
+                <form id="loginForm">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter username...">
+
+                    <label for="serialNumber">Serial Number</label>
+                    <input type="password" id="serialNumber" placeholder="Enter Serial Number...">
+
+                    <button type="submit">LOG IN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboardScreen" class="screen">
+        <div class="app-header">
+            <div class="header-icons">
+                <img src="https://via.placeholder.com/24/fff?text=M" alt="Mobile" class="header-icon">
+                <img src="https://via.placeholder.com/24/fff?text=T" alt="Tablet" class="header-icon">
+                <img src="https://via.placeholder.com/24/fff?text=D" alt="Desktop" class="header-icon active">
+            </div>
+            <div class="menu-text">Hamdi</div>
+            <div id="dashboardMenuIcon" class="menu-icon">&#9776;</div>
+        </div>
+
+        <div class="app-content">
+            <div class="profile-section">
+                <img id="profilePic" src="" alt="Profile Picture" class="profile-pic">
+                <h3 id="profileName" class="profile-name"></h3>
+                <p id="profileAlias" class="profile-alias"></p>
+            </div>
+
+            <div class="dashboard-section">
+                <h2 class="section-title">DASHBOARD</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p id="commissionValue" class="stat-value">$0</p>
+                        <p class="stat-label">Commission</p>
+                    </div>
+                    <div class="stat-card">
+                        <p id="totalCommissionValue" class="stat-value">$0</p>
+                        <p class="stat-label">Total Commission</p>
+                    </div>
+                    <div class="stat-card">
+                        <p id="totalProductSaleValue" class="stat-value">0</p>
+                        <p class="stat-label">Total Product Sale</p>
+                    </div>
+                    <div class="stat-card">
+                        <p id="totalProductGoalValue" class="stat-value">0</p>
+                        <p class="stat-label">Total Product Goal</p>
+                    </div>
+                </div>
+                <button id="logoutButtonDashboard" class="logout-button">LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchScreen" class="screen">
+        <div class="app-header">
+            <div class="header-icons">
+                <img src="https://via.placeholder.com/24/fff?text=M" alt="Mobile" class="header-icon">
+                <img src="https://via.placeholder.com/24/fff?text=T" alt="Tablet" class="header-icon">
+                <img src="https://via.placeholder.com/24/fff?text=D" alt="Desktop" class="header-icon active">
+            </div>
+            <div class="menu-text">Hamdi</div>
+            <div id="searchMenuIcon" class="menu-icon">&#9776;</div>
+        </div>
+
+        <div class="app-content">
+            <div class="search-section">
+                <h2 class="search-title">Ku Raadi Seria kada</h2>
+                <p class="search-description">Gali Serial Numberkada</p>
+                <div class="search-input-container">
+                    <input type="text" placeholder="Search" id="serialSearchInput" class="search-input">
+                </div>
+
+                <div class="results-list">
+                    <div class="result-item">
+                        <img src="images/sahro_profile.jpg" alt="Sahro Profile" class="item-pic">
+                        <span class="item-name">Sahro Ahmed Mustaf</span>
+                        <button class="add-button">+</button>
+                    </div>
+                    <div class="result-item">
+                        <img src="images/hamdi_profile.jpg" alt="Hamdi Profile" class="item-pic">
+                        <span class="item-name">Hamdi Hassan Muuse</span>
+                        <button class="add-button">+</button>
+                    </div>
+                    </div>
+                <button id="logoutButtonSearch" class="logout-button">LOGOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> </body>
+</html>

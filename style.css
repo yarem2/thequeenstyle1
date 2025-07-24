@@ -1,0 +1,490 @@
+/* Global Styles */
+html {
+    /* Ensures 1rem is 16px by default, adjust if needed for scaling */
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Universal box-sizing for easier layout */
+    background-color: #f0f2f5;
+    color: #333;
+    overflow-x: hidden; /* Prevents horizontal scroll from content overflow */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+}
+
+/* Apply box-sizing globally */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Screen Management for Single HTML File (Crucial for SPA behavior) */
+.screen {
+    display: none; /* Hide all screens by default */
+    min-height: 100vh;
+    width: 100vw; /* Occupy full viewport width */
+    position: absolute; /* Stack screens on top of each other */
+    top: 0;
+    left: 0;
+    background-color: #f0f2f5; /* Default background, will be overridden by JS for specific screens */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.screen.active {
+    display: block; /* Show the active screen */
+    position: relative; /* Make active screen establish context for its children */
+}
+
+/* App Header (Common to Dashboard and Search) */
+.app-header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem; /* Use rem units for better scaling */
+    height: 3.75rem; /* 60px */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.2); /* Rem units for shadow */
+}
+
+/* Qaybtan 'app-logo-small' style-keeda waa laga saaray halkan */
+
+.header-icons {
+    display: flex;
+    gap: 0.625rem; /* 10px */
+    margin-right: auto;
+}
+
+.header-icon {
+    width: 1.5rem; /* 24px */
+    height: 1.5rem; /* 24px */
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.header-icon.active {
+    opacity: 1;
+}
+
+.menu-text {
+    font-weight: bold;
+    margin-right: 0.9375rem; /* 15px */
+}
+
+.menu-icon {
+    font-size: 1.5rem; /* 24px */
+    cursor: pointer;
+}
+
+/* App Content (Common Padding) */
+.app-content {
+    padding: 1.25rem; /* 20px */
+    max-width: 100%; /* Ensure content doesn't overflow */
+    box-sizing: border-box; /* Important for padding calculations */
+}
+
+/* --- Splash Screen Styles --- */
+#splashScreen {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-screen-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.25rem; /* 20px */
+    width: 100%; /* Ensure it takes full width within flex container */
+    max-width: 37.5rem; /* Max width for larger screens (600px) */
+}
+
+.app-logo {
+    max-width: 100%; /* Ensure logo scales down */
+    height: auto;
+    margin-bottom: 3.125rem; /* 50px */
+}
+
+.login-button {
+    background-color: #2F6FDF;
+    color: white;
+    padding: 0.9375rem 3.75rem; /* 15px 60px */
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 0.9375rem; /* 15px */
+    transition: background-color 0.3s ease;
+    width: 80%; /* Relative width */
+    max-width: 18.75rem; /* 300px */
+}
+
+.login-button:hover {
+    background-color: #245cb3;
+}
+
+.admin-text {
+    color: #555;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* --- Login Screen Styles --- */
+#loginScreen {
+    background-color: #2F6FDF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25rem; /* 20px */
+}
+
+.login-box {
+    background-color: white;
+    padding: 1.875rem; /* 30px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2); /* Rem units */
+    width: 100%; /* Take full width of parent padding */
+    max-width: 25rem; /* 400px */
+    position: relative;
+    text-align: center;
+}
+
+.back-arrow {
+    position: absolute;
+    top: 1.25rem; /* 20px */
+    left: 1.25rem; /* 20px */
+    text-decoration: none;
+    color: #333;
+    font-size: 1.75rem; /* 28px */
+    line-height: 1;
+}
+
+.login-box h2 {
+    color: #2F6FDF;
+    margin-top: 1.25rem; /* 20px */
+    margin-bottom: 1.875rem; /* 30px */
+    font-size: 1.8em;
+}
+
+.login-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.5rem; /* 8px */
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%; /* Take full width of parent */
+    padding: 0.75rem 0.625rem; /* 12px 10px */
+    margin-bottom: 1.25rem; /* 20px */
+    border: 0.0625rem solid #ddd; /* 1px */
+    border-radius: 0.3125rem; /* 5px */
+    font-size: 1em;
+}
+
+.login-box input[type="text"]::placeholder,
+.login-box input[type="password"]::placeholder {
+    color: #aaa;
+}
+
+.login-box button[type="submit"] {
+    background-color: #FFC107;
+    color: white;
+    padding: 0.75rem 1.5625rem; /* 12px 25px */
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button[type="submit"]:hover {
+    background-color: #e0a800;
+}
+
+/* --- Dashboard Screen Styles --- */
+.profile-section {
+    background-color: #333;
+    color: white;
+    padding: 2.5rem 1.25rem 1.25rem; /* 40px 20px 20px */
+    text-align: center;
+    border-bottom-left-radius: 1.25rem; /* 20px */
+    border-bottom-right-radius: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.profile-pic {
+    width: 5rem; /* 80px */
+    height: 5rem; /* 80px */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.1875rem solid white; /* 3px */
+    margin-bottom: 0.625rem; /* 10px */
+    display: block; /* Ensures centering with margin auto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-name {
+    margin: 0.3125rem 0; /* 5px */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.profile-alias {
+    margin: 0;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.dashboard-section {
+    padding: 0 1.25rem; /* 0 20px - combines with .app-content padding */
+}
+
+.section-title {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.stats-grid {
+    display: grid;
+    /* Flexible grid that fits as many 150px columns as possible, then expands */
+    grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr)); /* 150px */
+    gap: 0.9375rem; /* 15px */
+}
+
+.stat-card {
+    background-color: white;
+    padding: 1.25rem; /* 20px */
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.08); /* Rem units */
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 0.3125rem; /* 5px */
+    color: #333;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+/* --- Search Screen Styles --- */
+.search-section {
+    padding: 1.25rem; /* 20px - combines with .app-content padding */
+}
+
+.search-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 0.3125rem; /* 5px */
+    color: #333;
+}
+
+.search-description {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.search-input-container {
+    position: relative;
+    margin-bottom: 1.5625rem; /* 25px */
+}
+
+.search-input {
+    width: 100%; /* Take full width */
+    padding: 0.75rem 0.625rem; /* 12px 10px */
+    border: 0.0625rem solid #ddd; /* 1px */
+    border-radius: 0.3125rem; /* 5px */
+    font-size: 1em;
+    box-shadow: inset 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.05); /* Rem units */
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.results-list {
+    background-color: white;
+    border-radius: 0.625rem; /* 10px */
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.08); /* Rem units */
+    padding: 0.625rem; /* 10px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    padding: 0.9375rem; /* 15px */
+    border-bottom: 0.0625rem solid #eee; /* 1px */
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.item-pic {
+    width: 3.125rem; /* 50px */
+    height: 3.125rem; /* 50px */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.9375rem; /* 15px */
+    border: 0.125rem solid #eee; /* 2px */
+}
+
+.item-name {
+    flex-grow: 1;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.add-button {
+    background-color: #2F6FDF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 1.875rem; /* 30px */
+    height: 1.875rem; /* 30px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: #245cb3;
+}
+
+/* --- Logout Button Style --- */
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.75rem 1.5625rem; /* 12px 25px */
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 1.25rem; /* 20px */
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+/* Responsive adjustments using Media Queries */
+
+/* For screens smaller than 768px (tablets and phones) */
+@media (max-width: 48rem) { /* 768px */
+    .app-header {
+        padding: 0.625rem 0.9375rem; /* 10px 15px */
+        height: 3.4375rem; /* 55px */
+    }
+    /* .app-logo-small ee CSS-ka ayaa laga saaray halkan */
+    .header-icons {
+        display: none; /* Hide icons on smaller screens to save space */
+    }
+    .menu-text {
+        font-size: 0.9em;
+        margin-right: 0.625rem; /* 10px */
+    }
+    .menu-icon {
+        font-size: 1.25rem; /* 20px */
+    }
+
+    .app-content {
+        padding: 0.9375rem; /* 15px */
+    }
+
+    .profile-section {
+        padding: 1.875rem 0.9375rem 0.9375rem; /* 30px 15px 15px */
+    }
+    .profile-pic {
+        width: 4.375rem; /* 70px */
+        height: 4.375rem; /* 70px */
+    }
+    .profile-name {
+        font-size: 1.3em;
+    }
+
+    .stat-card {
+        padding: 0.9375rem; /* 15px */
+    }
+    .stat-value {
+        font-size: 1.5em;
+    }
+
+    .search-title {
+        font-size: 1.3em;
+    }
+    .search-input {
+        padding: 0.625rem; /* 10px */
+    }
+    .result-item {
+        padding: 0.625rem; /* 10px */
+    }
+    .item-pic {
+        width: 2.5rem; /* 40px */
+        height: 2.5rem; /* 40px */
+        margin-right: 0.625rem; /* 10px */
+    }
+    .item-name {
+        font-size: 1em;
+    }
+    .add-button {
+        width: 1.5625rem; /* 25px */
+        height: 1.5625rem; /* 25px */
+        font-size: 1.3em;
+    }
+}
+
+/* For very small screens (phones, less than 480px) */
+@media (max-width: 30rem) { /* 480px */
+    .login-box {
+        padding: 1.25rem; /* 20px */
+        margin: 0 0.625rem; /* 0 10px */
+    }
+    .login-box h2 {
+        font-size: 1.5em;
+        margin-bottom: 1.25rem; /* 20px */
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"],
+    .login-box button[type="submit"] {
+        font-size: 0.9em;
+        padding: 0.625rem; /* 10px */
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack all cards vertically */
+    }
+
+    .logout-button {
+        padding: 0.625rem 1.25rem; /* 10px 20px */
+        font-size: 0.9em;
+    }
+}
